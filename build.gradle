@@ -4,12 +4,16 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
+        gradlePluginPortal()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
-        classpath 'com.android.tools.build:gradle:2.3.3'
+//        classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+//        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath "gradle.plugin.org.wisepersist:gwt-gradle-plugin:1.1.0"
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.1'
         
 

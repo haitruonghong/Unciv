@@ -1,6 +1,6 @@
 android {
-    buildToolsVersion "26.0.2"
-    compileSdkVersion 25
+    buildToolsVersion "34.0.0"
+    compileSdkVersion 34
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -19,8 +19,8 @@ android {
     }
     defaultConfig {
         applicationId "com.unciv.game"
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion 28
+        targetSdkVersion 29
         versionCode 26
         versionName "1.2.2"
     }
