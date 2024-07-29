@@ -9,6 +9,12 @@ sourceSets {
     }
 }
 
+sourceSets {
+    main {
+        resources.srcDirs ("../android/assets")
+    }
+}
+
 kotlin {
     jvmToolchain(17)
 
