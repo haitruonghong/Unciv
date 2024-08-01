@@ -39,6 +39,22 @@ java: 17
         The tranlated text contain [] to store an variable name will be replace with real input value.
 
 
+***How font draw extractly characters to display on UI:
+    When create a control like Label below:
+
+    return Label(this.tr(hideIcons), labelStyle).apply {...
+
+   NativeBitmapFontData extend BitmapFont class and override method
+
+   public Glyph getGlyph (char ch) :
+     - will use to put binary data of charaters to Pixmap:
+        + Call method createAndCacheGlyph(ch: Char) ->getPixmapFromChar(ch: Char)->fontImplementation.getCharPixmap(ch)
+            the fontImplementation depend on native environment: Android or Deskop will do logic and return Pixmap object.
+
+     - Use PixmapPacker to pack Pixmap object, do logic to return a BitmapFont.Glyph
+
+
+
 
 
 
