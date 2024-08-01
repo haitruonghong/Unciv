@@ -6,12 +6,43 @@ java: 17
 
     DesktopGame extend UncivGame : call method
 
-        setAsRootScreen(GameStartScreen())  :GameStartScreen load in some seconds and
+        setAsRootScreen(GameStartScreen())  :GameStartScreen load in some seconds and Then call setAsRootScreen(MainMenuScreen()) with condition:
 
-    Then call
-        deepLinkedMultiplayerGame == null -> setAsRootScreen(MainMenuScreen())
+            deepLinkedMultiplayerGame == null -> setAsRootScreen(MainMenuScreen()) : load MainMenuScreen (That user choose buttons to start or config game)
 
-    to load MainMenuScreen (That user choose buttons to start or config game)
+
+***UncivGame
+    * On create() method:
+        - Load json config data game:
+
+            Concurrency.run("LoadJSON") {
+                RulesetCache.loadRulesets()                         : load Rulesets
+                translations.tryReadTranslationForCurrentLanguage() : load translate of current language from property file, ex: English.properties
+                translations.loadPercentageCompleteOfLanguages()    : load PercentageCompleteOfLanguages
+                TileSetCache.loadTileSetConfigs()                   : load TileSetConfigs
+                SkinCache.loadSkinConfigs()                         : load Skins
+                ....
+
+***Flow to get text from translated current language(Ex:one flow):
+    MainMenuScreen->getMenuButton()
+        ...
+       table.add(text.toLabel(fontSize = 30, alignment = Align.left)).expand().left().minWidth(200f)
+       ...
+
+        ->call method String.toLabel() in file Scene2dExtensions.kt
+
+        Real logic get tranlated text from method  String.tr(hideIcons: Boolean = false): String
+
+        String.tr() call String.translateIndividualWord(language: String, hideIcons: Boolean) to get translated Text
+
+
+        The tranlated text contain [] to store an variable name will be replace with real input value.
+
+
+
+
+
+
 
 
 
